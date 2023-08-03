@@ -3,6 +3,8 @@
 #include <time.h>
 #include <stdbool.h>
 
+#define LOOP_MAX 1000
+
 int ml1 = 0;
 int ml2 = 25;
 int ml3 = 50;
@@ -14,7 +16,7 @@ typedef struct pote{
 }pote;
 
 
-void remove (pote* balde, int removeA, int removeB){
+void remover (pote* balde, int removeA, int removeB){
     if (balde->sopaA < removeA || balde->sopaB < removeB)
         return; 
     balde->sopaA -= removeA;
@@ -22,6 +24,12 @@ void remove (pote* balde, int removeA, int removeB){
     return;
 }
 int main (void){
+    while(true){
+    int jotinhaquerparar = 0;
+    printf("Jotinha quer parar?(se quiser digita -1)\n");
+    scanf("%i\n",&jotinhaquerparar);
+    if(jotinhaquerparar == -1)break;
+
     int n;
     scanf("%i", &n);
 
@@ -31,10 +39,12 @@ int main (void){
     time_t t;
     time(&t);
     unsigned int op = (unsigned int)t;
+    
     srand(op);
-    int per100 [3]; 
+    int vezes [3]; 
+    
     for (int i = 0; i < 3; i++)
-        per100 [i] = 0;
+        vezes [i] = 0;
 
     // 0 A primeiro
     // 1 A e B juntos
@@ -45,35 +55,45 @@ int main (void){
     Sirva 50ml de sopa A e 50ml de sopa B , e
     Sirva 25ml de sopa A e 75ml de sopa B .*/
 
-    for (int i = 0; i < 100; i++){
+    for (int i = 0; i < LOOP_MAX; i++){
         while (balde.sopaA > 0 && balde.sopaB > 0){
             op = rand() % 4;
             switch (op){
-                case 0: remove (&balde, ml5, ml1);    // int ml1 0
+                case 0: remover (&balde, ml5, ml1);    // int ml1 0
                     break;                            // int ml2 25
-                case 1: remove (&balde, ml4, ml2);    // int ml3 50
+                case 1: remover (&balde, ml4, ml2);    // int ml3 50
                     break;                            // int ml4 75
-                case 2: remove (&balde, ml3, ml3);    // int ml5 100
+                case 2: remover (&balde, ml3, ml3);    // int ml5 100
                     break;
-                case 3: remove (&balde, ml2, ml4);
+                case 3: remover (&balde, ml2, ml4);
                     break;
                 default:
                     break;
             }
         }
 
+        //    LOOP_MAX -- 100 %
+        //    vezes[i]--  x %
+
         if (balde.sopaA == 0 && balde.sopaB > 0)
-            per100[0] += 1;
+            vezes[0] += 1;
         if (balde.sopaA == 0 && balde.sopaB == 0)
-            per100 [1] += 1;
+            vezes [1] += 1;
         if (balde.sopaA > 0 && balde.sopaB == 0)
-            per100[2] += 1;
+            vezes[2] += 1;
         
         balde.sopaA = balde.sopaB = n;
 
     }
-    printf( "chances onde ml totais sao %i sao de A %i, A e B %i e so B %i ", n, per100[0], per100[1], per100[2]);
+    double pr100[3];
+    for (int i = 0; i < 3; i++){
+        pr100[i] = (double) vezes[i] / LOOP_MAX;
+        pr100[i] *= 100;
+    }
 
+    printf( " onde ml totais sao %i as chances sao de somente A primeiro %.2f,\n A e B juntos %.2f \n somente B primeiro %.2f \n\n", n, pr100[0], pr100[1], pr100[2]);
+
+    }
     return 0;
 
 }
