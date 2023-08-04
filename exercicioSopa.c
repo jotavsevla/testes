@@ -33,6 +33,8 @@ int main (void){
     int n;
     scanf("%i", &n);
 
+    n -= n % 25;
+
     pote balde;
     balde.sopaA = balde.sopaB = n;
 
