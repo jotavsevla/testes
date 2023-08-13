@@ -7,7 +7,6 @@ void inicializa_lista(Lista * ap_lista){
 }
 // pronto
 void insere_fim(Lista * ap_lista, int valor){
-//pronto
     No* novo_no = malloc (sizeof(No));
     novo_no->valor = valor;
     novo_no->proximo = NULL;
@@ -126,6 +125,7 @@ int tamanho(Lista lista){
     return index_count;
     
 }
+// revendo
 int remove_ocorrencias(Lista *ap_lista, int valor){
     int i = 0;
     No* tmp = *ap_lista;
@@ -147,6 +147,7 @@ int remove_ocorrencias(Lista *ap_lista, int valor){
     }
     return i;
 }
+// pronto
 int busca(Lista lista, int valor){
     if (lista == NULL) return -1;
     int i = 0;
@@ -175,6 +176,7 @@ void imprime(Lista lista){
     printf (")\n");
     return;
 }
+//usar valgrind
 void desaloca_lista(Lista *ap_lista){
     No* percorre = (*ap_lista);
     while (percorre != NULL){
