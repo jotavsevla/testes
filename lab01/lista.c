@@ -97,12 +97,11 @@ bool remove_i_esimo(Lista * ap_lista, int i){
         antec->proximo = remove->proximo;
         free(remove);
         return true;
-    }else{
-        return false;
     }
+    return false;
 
 }
-//ta errada
+// pronta
 int recupera_i_esimo(Lista lista, int i){
     if(lista == NULL) return -1;
     No* procura = lista;
@@ -126,6 +125,7 @@ int tamanho(Lista lista){
     return index_count;
     
 }
+// pronto
 int remove_ocorrencias(Lista *ap_lista, int valor){
     int i = 0;
     No* tmp = *ap_lista;
@@ -147,6 +147,7 @@ int remove_ocorrencias(Lista *ap_lista, int valor){
     }
     return i;
 }
+// pronto
 int busca(Lista lista, int valor){
     if (lista == NULL) return -1;
     int i = 0;
@@ -175,6 +176,7 @@ void imprime(Lista lista){
     printf (")\n");
     return;
 }
+// pronto
 void desaloca_lista(Lista *ap_lista){
     No* percorre = (*ap_lista);
     while (percorre != NULL){

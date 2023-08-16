@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
-
+int indice_romano = 13;
 const char *romanos [13]={"I","IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
-
+const int romanos [13]={1,4,5,9,10,40,50,90,100,400,500,900,1000};
 void conversor(int n){
     int val [4];
     val[3] = n;
@@ -17,6 +17,12 @@ void conversor(int n){
     for (int i = 3; i > -1; i--)
         imprime_romano(val[i]);
     
+}
+imprime_conversor(int valor_algarismo){
+    int n = 0;
+    while(n < indice_romano){
+        if (romanos[n] == )
+    }
 }
 void imprime_romano (int valor_algarismo){
     int k, acumulador;
