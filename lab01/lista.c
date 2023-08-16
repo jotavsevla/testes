@@ -7,7 +7,6 @@ void inicializa_lista(Lista * ap_lista){
 }
 // pronto
 void insere_fim(Lista * ap_lista, int valor){
-//pronto
     No* novo_no = malloc (sizeof(No));
     novo_no->valor = valor;
     novo_no->proximo = NULL;
@@ -176,7 +175,6 @@ void imprime(Lista lista){
     printf (")\n");
     return;
 }
-// pronto
 void desaloca_lista(Lista *ap_lista){
     No* percorre = (*ap_lista);
     while (percorre != NULL){
