@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lista.h"
-// pronto
 void inicializa_lista(Lista * ap_lista){
     *ap_lista = NULL;
 }
-// pronto
 void insere_fim(Lista * ap_lista, int valor){
     No* novo_no = malloc (sizeof(No));
     novo_no->valor = valor;
@@ -19,7 +17,6 @@ void insere_fim(Lista * ap_lista, int valor){
     percorre->proximo = novo_no;
 
 }
-// pronto 
 void insere_inicio(Lista * ap_lista, int valor){
     No* novo_no = malloc (sizeof(No));
     novo_no->valor = valor;
@@ -28,9 +25,7 @@ void insere_inicio(Lista * ap_lista, int valor){
     *ap_lista = novo_no;
     return;
 }
-// pronto revisado
 int remove_inicio(Lista * ap_lista){
-//pronto revisado
     if ((*ap_lista) == NULL) return -1;
     No* remove = (*ap_lista);
     int val;
@@ -46,7 +41,6 @@ int remove_inicio(Lista * ap_lista){
     free (remove);
     return val;
 }
-//pronto
 int remove_fim(Lista * ap_lista){
     if ((*ap_lista) == NULL) return -1;
     if ((*ap_lista)->proximo == NULL){
@@ -70,7 +64,6 @@ int remove_fim(Lista * ap_lista){
     return val;
 
 }
-// ta errada
 bool remove_i_esimo(Lista * ap_lista, int i){
     if((*ap_lista) == NULL) return false;   
     No* remove = (*ap_lista);
@@ -100,7 +93,6 @@ bool remove_i_esimo(Lista * ap_lista, int i){
     return false;
 
 }
-// pronta
 int recupera_i_esimo(Lista lista, int i){
     if(lista == NULL) return -1;
     No* procura = lista;
@@ -113,7 +105,6 @@ int recupera_i_esimo(Lista lista, int i){
     if (index != i) return -1;
     return procura->valor;
 }
-//pronto
 int tamanho(Lista lista){
     int index_count = 0;
     No* percorre = lista;
@@ -122,9 +113,7 @@ int tamanho(Lista lista){
         index_count++;
     }
     return index_count;
-    
 }
-// pronto
 int remove_ocorrencias(Lista *ap_lista, int valor){
     int i = 0;
     No* tmp = *ap_lista;
