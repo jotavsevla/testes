@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
-#define mxN 100
+#define mxN 5
 
 typedef struct {
     int vzx;
@@ -24,11 +24,11 @@ void verifica_repeticoes(int* valores_aleatorios){
     numero_repetido valores[2]; //atual mais repetido e atual
     valores[0].vzx = 1;
     valores[0].numb =  *valores_aleatorios;
-    for (i = 0; i < 5-1; i++){
+    for (i = 0; i < mxN; i++){
         valores[1].numb = valores_aleatorios[i++];
         valores[1].vzx = 1;
         j = 0;
-        for ( j += i++; j < 5; j++) if (valores_aleatorios[i] == valores_aleatorios[j]) valores[1].vzx++;
+        for ( j += i++; j < mxN; j++) if (valores_aleatorios[i] == valores_aleatorios[j]) valores[1].vzx++;
         if (valores[0].vzx < valores[1].vzx){
             valores[0].numb = valores[1].numb;
             valores[0].vzx =  valores[1].vzx;
@@ -37,8 +37,8 @@ void verifica_repeticoes(int* valores_aleatorios){
     printf("%i repetiu mais vezes, sendo elas %i\n ", valores[0].numb, valores[0].vzx);
 }
 int* vetor_controlado(){
-    int* vet_definido = malloc (sizeof(int)*5);
-    for(int i = 0; i < 5; i++) scanf("%i", &vet_definido[i]);
+    int* vet_definido = malloc (sizeof(int)*mxN);
+    for(int i = 0; i < mxN; i++) scanf("%i", &vet_definido[i]);
     return vet_definido;
 }
 
