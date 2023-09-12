@@ -37,6 +37,10 @@ void verifica_repeticoes(int valores_aleatorios[]){
         if (mais_rep.vzx < atual.vzx){
             mais_rep.numb = atual.numb;
             mais_rep.vzx =  atual.vzx;
+        for ( j += i++; j < 5; j++) if (valores_aleatorios[i] == valores_aleatorios[j]) valores[1].vzx++;
+        if (valores[0].vzx < valores[1].vzx){
+            valores[0].numb = valores[1].numb;
+            valores[0].vzx =  valores[1].vzx;
         }
     }
     printf("%i repetiu mais vezes, sendo elas %i\n ", mais_rep.numb, mais_rep.vzx);
@@ -44,10 +48,12 @@ void verifica_repeticoes(int valores_aleatorios[]){
 int* vetor_controlado(){
     int* vet_definido = malloc (sizeof(int)*5);
     for(int i = 0; i < 5; i++) scanf("%i", &vet_definido[i]);
+    int* vet_definido = malloc (sizeof(int)*mxN);
+    for(int i = 0; i < mxN; i++) scanf("%i", &vet_definido[i]);
     return vet_definido;
 }
 
 int main (){
     verifica_repeticoes(numeros_aleatorios()); //geraçao OK
     return 0;
-}
+}}
