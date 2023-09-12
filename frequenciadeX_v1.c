@@ -57,3 +57,4 @@ int main (){
     verifica_repeticoes(numeros_aleatorios()); //geraçao OK
     return 0;
 }}
+}
