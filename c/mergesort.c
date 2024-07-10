@@ -4,9 +4,9 @@
 #define mxN 20
 
 void imprime(int* vetor){
-    for(int i = 0; i < mxN; i++){
+    for(int i = 0; i < mxN; i++)
         printf("%i ", vetor[i]);
-    }
+    
     printf("\n");
 
 }
@@ -21,7 +21,6 @@ void merge(int vetor [], int inicio, int meio, int fim){
         copia[i] = vetor[i];
     
     while(count_inicio <= meio && count_meio <= fim){
-
         if( copia[count_inicio] < copia[count_meio]){
             vetor[count_sort] =  copia [count_inicio];
             count_inicio++;
@@ -31,8 +30,8 @@ void merge(int vetor [], int inicio, int meio, int fim){
             count_meio++;
         }
             count_sort++;
-
     }
+
     while(count_inicio <= meio){
         vetor[count_sort] =  copia [count_inicio];
         count_inicio++;
@@ -43,7 +42,6 @@ void merge(int vetor [], int inicio, int meio, int fim){
         count_meio++;
         count_sort++;
     }
-    
 
     return;
 }
@@ -58,15 +56,15 @@ int* numeros_aleatorios (){
     int *valores = malloc (sizeof(int)* mxN);
     //int valores[mxN];
     srand(time(NULL));
-    for (int i = mxN - 1; i >= 0; i--){
+    for (int i = mxN - 1; i >= 0; i--)
         valores[i] = rand() % 9;
-    }
     printf("\n");
     return valores;
 }
 int* vetor_controlado(){
     int* vet_definido = malloc (sizeof(int)*mxN);
-    for(int i = 0; i < mxN; i++) scanf("%i", &vet_definido[i]);
+    for(int i = 0; i < mxN; i++)
+        scanf("%i", &vet_definido[i]);
     return vet_definido;
 }
 int main (void){
