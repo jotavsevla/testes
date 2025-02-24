@@ -1,3 +1,18 @@
+/**
+ * Implementação do algoritmo Merge Sort
+ * 
+ * Este programa demonstra o funcionamento do algoritmo Merge Sort,
+ * que possui complexidade O(n log n) e é um algoritmo de ordenação estável.
+ * 
+ * O algoritmo divide o vetor em duas metades, ordena cada metade 
+ * recursivamente e depois mescla (merge) as duas metades ordenadas.
+ * 
+ * Entrada: Vetor aleatório de inteiros
+ * Saída: Vetor ordenado em ordem crescente
+ * 
+ * Autor: João Victor Alves Pereira de Araújo
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
